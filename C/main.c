@@ -1,51 +1,45 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 #include "header.h"
 
-int main()
-{
-    Oglas oglas[100];
+int main(void) {
+    Oglas oglasi[MAX_OGLASA];
     int n = 0;
-    load(oglas, &n);
-    printf("\nUcitano %d oglasa.\n", n);
 
-    while(1){
-        int instrukcija = Meni();
-        switch(instrukcija){
+    load(oglasi, &n);
+
+    while (1) {
+        switch (Meni()) {
             case 0:
+                printf("\nIzlaz iz programa.\n");
                 return 0;
             case 1:
-                load(oglas, &n);
-                printf("\nUcitano %d oglasa.\n", n);
+                load(oglasi, &n);
                 break;
             case 2:
-                save(oglas, n);
+                save(oglasi, n);
                 break;
             case 3:
-                add(oglas, &n);
+                add(oglasi, &n);
                 break;
             case 4:
-                all(oglas, n);
+                all(oglasi, n);
                 break;
             case 5:
-                poNazivu(oglas, n);
+                poNazivu(oglasi, n);
                 break;
             case 6:
-                poIskustvu(oglas, n);
+                poIskustvu(oglasi, n);
                 break;
             case 7:
-                vecaPlata(oglas, n);
+                vecaPlata(oglasi, n);
                 break;
             case 8:
-                vecaCRada(oglas, n);
+                vecaCRada(oglasi, n);
                 break;
-
             default:
-                printf("\nFunkcija nije podrzana!\n");
+                printf("\nNepoznata opcija.\n");
                 break;
         }
     }
-    return 0;
 }
-
